@@ -1,0 +1,363 @@
+[
+  {
+    "id": "2606.20529v1",
+    "title": "LedgerAgent: Structured State for Policy-Adherent Tool-Calling Agents",
+    "authors": [
+      "Md Nayem Uddin",
+      "Amir Saeidi",
+      "Eduardo Blanco",
+      "Chitta Baral"
+    ],
+    "abstract": "Policy-adherent tool-calling agents in customer-service domains must maintain task states across turns while calling tools and obeying domain policies. Task states consist of relevant facts, identifiers, constraints, and conditions observed through user interaction and tool calls. In standard agents, task states are not represented separately. Observations, tool returns, and policy instructions are placed in the prompt, leaving agents to reconstruct the relevant states from the prompt each time they decide what to do next. This design makes state management implicit, creating two common failure modes. An agent may retrieve the right facts but later ground its decision in stale, missing, or incorrect information; and a syntactically valid tool call may still violate a domain policy that depends on the current task state. We introduce \\textsc{LedgerAgent}, an inference-time method for tool-calling agents that maintains observed task states in a separate ledger and renders the states into the prompt. The ledger is also used to check state-dependent policy constraints before environment-changing tool calls are executed, blocking policy violations. Across four customer-service domains and a mixed panel of open- and closed-weight models, \\textsc{LedgerAgent} improves average pass\\textasciicircum{}k over a standard prompt-based tool-calling approach, with the largest gains under stricter multi-trial consistency metrics.",
+    "pdf_url": "https://arxiv.org/pdf/2606.20529v1",
+    "published": "2026-06-18 17:41:56+00:00",
+    "categories": [
+      "cs.AI",
+      "cs.CL"
+    ]
+  },
+  {
+    "id": "2606.20527v1",
+    "title": "StylisticBias: A Few Human Visual Cues Drive Most Social Biases in MLLMs",
+    "authors": [
+      "Shaghayegh Kolli",
+      "Timo Cavelius",
+      "Nafiseh Nikeghbal",
+      "Samantha Dalal",
+      "Jana Diesner"
+    ],
+    "abstract": "Multimodal large language models (MLLMs) are increasingly deployed in personally and societally consequential settings, yet the visual cues that shape how these models judge people remain poorly understood. Prior work often compares different (groups of) individuals, making it difficult to separate appearance effects from identity differences. We introduce StylisticBias, a controlled benchmark for evaluating attribute-level social bias in MLLMs. We generate 500 photorealistic base faces and create about 50 single-attribute variations per face, producing about 25K images. This design keeps identity fixed and changes one visual attribute at a time. It lets us measure how specific cues shift model judgments. We evaluate six MLLMs across 25 binary social judgment scenarios. We find that age and body type dominate identity-level effects, while fashion style and other visual cues drive the largest attribute-level shifts. We further find that about 15 attributes account for nearly 80\\% of the total variation, showing that bias is concentrated in a small set of visual cues. Sensitivity is strongest in judgments that are semantically aligned with appearance, especially socioeconomic and style-related judgments. We release StylisticBias as a benchmark for fine-grained bias evaluation in multimodal models. Code and dataset: https://github.com/timo-cavelius/StylisticBias and https://hf.co/datasets/shaghayegh/stylistic-bias-dataset.",
+    "pdf_url": "https://arxiv.org/pdf/2606.20527v1",
+    "published": "2026-06-18 17:39:56+00:00",
+    "categories": [
+      "cs.CL",
+      "cs.CV"
+    ]
+  },
+  {
+    "id": "2606.20487v1",
+    "title": "Beyond Global Replanning: Hierarchical Recovery for Cross-Device Agent Systems",
+    "authors": [
+      "Shu Yao",
+      "Yuhua Luo",
+      "Qian Long",
+      "Jingru Fan",
+      "Zhuoyuan Yu",
+      "Yuheng Wang",
+      "Lin Wu",
+      "Yufan Dang",
+      "Huatao Li",
+      "Chen Qian"
+    ],
+    "abstract": "Real-world computer-use tasks often span multiple applications and devices, requiring agents to coordinate heterogeneous environments under dynamic runtime failures. Existing multi-device agent systems support task decomposition and cross-device assignment, but recovery remains largely coarse-grained: when execution fails, they typically retry the same strategy, reassign the subtask, or revise the global plan, without systematically modeling the device-local strategy space. This limits their ability to distinguish failures that can be repaired within the current device from those that require cross-device replanning. We propose \\textbf{H-RePlan}, a hierarchical replanning framework for multi-device agents with unified API--CLI--GUI execution. H-RePlan equips each device with interchangeable execution strategies and separates device-local strategy recovery from orchestrator-level global replanning through a compact cross-layer failure abstraction. To evaluate this capability, we introduce \\textbf{HeraBench}, a fault-injected benchmark that constructs cross-device workflows over Linux and Android devices and injects strategy- and device-level failures. Experiments show that H-RePlan substantially outperforms single-strategy and coarse-grained multi-device baselines, achieving higher completion, instruction adherence, and perfect-pass rates while reducing the token cost required for reliable end-to-end success. These results demonstrate that scope-aware hierarchical recovery is essential for robust multi-device agent execution.",
+    "pdf_url": "https://arxiv.org/pdf/2606.20487v1",
+    "published": "2026-06-18 17:04:17+00:00",
+    "categories": [
+      "cs.CL"
+    ]
+  },
+  {
+    "id": "2606.20482v1",
+    "title": "Your Mouse and Eyes Secretly Leak Your Preference: LLM Alignment using Implicit Feedback from Users",
+    "authors": [
+      "Haw-Shiuan Chang",
+      "Jeffrey Gomez",
+      "Mehul Patwari",
+      "Aryan Sajith",
+      "Hamed Zamani"
+    ],
+    "abstract": "To align a Large Language Model (LLM), most existing methods collect explicit human feedback and train a reward model to predict the human preference based on the response text. These existing methods have two key limitations. First, the users rarely provide explicit feedback for LLM responses, which makes the high-quality preference annotation expensive to collect. Second, the methods do not leverage implicit human feedback, which has proven vital to the economic moats of Internet giants. To quantify the value of implicit feedback, we build a new dataset called IFLLM, which collects 1336 multi-turn questions from the 59 Mechanical Turk workers, their mouse trajectories, and eye gazing points to the LLMs' responses from their webcams. IFLLM shows that the users have very diverse types of gazing behavior and mouse trajectories. Our reward model based on the implicit user feedback boosts the accuracy of the text-based reward model from 55% to 64% and nearly triples the relative response quality improvements after applying the DPO to eight LLMs, demonstrating the value of implicit feedback in the wild. Our data collection website, dataset, and codes can be found at https://github.com/themehulpatwari/llm-implicit-feedback/.",
+    "pdf_url": "https://arxiv.org/pdf/2606.20482v1",
+    "published": "2026-06-18 17:00:48+00:00",
+    "categories": [
+      "cs.CL",
+      "cs.HC",
+      "cs.LG"
+    ]
+  },
+  {
+    "id": "2606.20477v1",
+    "title": "Scalable Training of Spatially Grounded 2D Vision-Language Models for Radiology",
+    "authors": [
+      "Yusuf Salcan",
+      "Simon Ging",
+      "Robin Schirrmeister",
+      "Philipp Arnold",
+      "Elmar Kotter",
+      "Behzad Bozorgtabar",
+      "Thomas Brox"
+    ],
+    "abstract": "We study how to train visually grounded vision-language models (VLMs) for radiology without manual spatial annotations. We introduce RefRad2D, a large-scale bilingual (German/English) dataset of 1.2M CT and MR image-text pairs derived from clinical practice, with task-specific VQA and spatial grounding subsets generated automatically via LLM-based curation and automated segmentation. Trained on this data, our model RadGrounder jointly performs report generation, visual question answering, and spatial grounding via bounding-box detection or segmentation. On external VQA benchmarks (Slake, VQA-RAD), RadGrounder achieves competitive results with specialized medical VLMs. Adding our clinical data to the training mixture improves open-ended VQA over fine-tuning on the downstream datasets alone, showing the transferability of our dataset. Crucially, adding grounding supervision does not degrade language quality, enabling spatially verifiable outputs at no cost to VQA performance.",
+    "pdf_url": "https://arxiv.org/pdf/2606.20477v1",
+    "published": "2026-06-18 16:55:26+00:00",
+    "categories": [
+      "cs.CV",
+      "cs.CL",
+      "cs.LG"
+    ]
+  },
+  {
+    "id": "2606.20369v1",
+    "title": "CATCH-ME if you RAG: a dataset of Contextually Annotated multi-Turn Counterspeech against Hate and Misinformation Exchanges",
+    "authors": [
+      "Helena Bonaldi",
+      "Genoveffa Martone",
+      "Marco Guerini"
+    ],
+    "abstract": "Online hate speech and misinformation frequently overlap, yet NLP research has mainly treated them in isolation. While LLMs represent a scalable solution for assisting humans in the generation of counterspeech for both threats, zero-shot models frequently generate repetitive and vague responses, underscoring the need for high-quality examples to steer model generation. However, existing counterspeech datasets against the overlap of hate and misinformation are scarce and limited to single-turn English dialogues, while real-life interactions span across multiple turns and languages. To bridge this gap, we introduce the first large-scale, expert-curated, multilingual dataset of dialogues tackling the intersection of hate and misinformation. To ensure factual grounding, the dialogues are also anchored in verified external knowledge (i.e., fact-checking articles and NGO reports) and include document- and chunk-level span annotations, making it directly applicable for RAG systems. Covering five languages and targeting hate directed at seven marginalized groups, this novel resource enables the training and evaluation of more persuasive, factually grounded counterspeech models.",
+    "pdf_url": "https://arxiv.org/pdf/2606.20369v1",
+    "published": "2026-06-18 15:32:14+00:00",
+    "categories": [
+      "cs.CL"
+    ]
+  },
+  {
+    "id": "2606.20295v1",
+    "title": "Token-Operations-Oriented Inference Optimization Techniques for Large Models",
+    "authors": [
+      "Shiguo Lian",
+      "Kai Wang",
+      "Zhaoxiang Liu",
+      "Wen Liu",
+      "Minjie Hua",
+      "Yutong Liu",
+      "Jiangze Yan",
+      "Xin Wang",
+      "Cong Wang",
+      "Yilin Zhang",
+      "Yi Shen",
+      "Jieyun Huang",
+      "Fang Zhao",
+      "Huanlin Gao",
+      "Ping Chen",
+      "Xinyu Yang",
+      "Kaikai Zhao",
+      "Yao Zhao",
+      "Xinggang Wang",
+      "Huishuai Zhang",
+      "Dongyan Zhao",
+      "Junping Du",
+      "Tao Chen",
+      "Xiang Gao",
+      "Qinghuai Ma"
+    ],
+    "abstract": "Large model inference optimization serves as a key foundation for supporting the scalable, low-cost, and highly stable operation of large model services. Centered on token-oriented inference optimization technology, this paper proposes for the first time a four-layer technical architecture consisting of Multi-model Fusion, Model Optimization, Compute-Model Fusion, and Compute-Network-Model Fusion. It systematically reviews the key technologies and current industry status across these four levels and analyzes the application value of related technologies in real-world business scenarios. This paper provides a practical technical path for reducing token production costs, improving token service efficiency, ensuring the stability of token supply, and driving the transition of large model services from being merely callable to being operable.",
+    "pdf_url": "https://arxiv.org/pdf/2606.20295v1",
+    "published": "2026-06-18 14:33:09+00:00",
+    "categories": [
+      "cs.SE",
+      "cs.CL"
+    ]
+  },
+  {
+    "id": "2606.20287v1",
+    "title": "PsyScore: A Psychometrically-Aware Framework for Trait-Adaptive Essay Scoring and ZPD-Scaffolded Feedback",
+    "authors": [
+      "Wei Xia",
+      "Jin Wu",
+      "Haoran Shi",
+      "Xiangyu Wang",
+      "Chanjin Zheng"
+    ],
+    "abstract": "Effective Automated Essay Scoring (AES) are expected to support both reliable assessment and actionable instructional feedback. However, existing approaches often treat scoring and feedback as separate components: neural scoring models provide limited interpretability, while Large Language Model (LLM)-based feedback is typically insensitive to learners proficiency levels. To address this fragmentation, this work proposes PsyScore, a psychometrically-aware framework that integrates diagnostic assessment with instructional scaffolding through a shared latent ability representation. PsyScore comprises three key modules: a Trait-Adaptive Neural IRT Scorer that incorporates the Graded Partial Credit Model (GPCM) into a neural architecture, enabling the precise estimation of student ability while maintaining psychometric interpretability, a ZPD-Scaffolded Feedback Generator, which conditions multi-agent feedback strategies on the diagnosed ability parameter to adapt instructional focus across different proficiency levels, and a Multi-Perspective Feedback Evaluation Strategy that assesses feedback quality via pairwise preference judgements and student revision simulations. Experiments on the ASAP++ dataset demonstrate that PsyScore achieves competitive scoring performance while providing more pedagogically aligned feedback.",
+    "pdf_url": "https://arxiv.org/pdf/2606.20287v1",
+    "published": "2026-06-18 14:29:13+00:00",
+    "categories": [
+      "cs.CL"
+    ]
+  },
+  {
+    "id": "2606.20255v1",
+    "title": "The Register Gap: A Meaning Intelligence Framework for Nigerian Public Discourse",
+    "authors": [
+      "Celestine Achi"
+    ],
+    "abstract": "We introduce the Meaning Intelligence Framework (MIF), a nine-dimension annotation and evaluation schema for Nigerian public discourse that separates surface sentiment from true communicative intent. Existing benchmarks for Nigerian languages, including NaijaSenti and AfriSenti, treat sentiment classification as a three-way polarity task (positive, negative, neutral). We argue that the dominant failure mode of AI systems on Nigerian discourse is not translation failure but context failure: the same utterance carries opposite pragmatic force depending on speaker, audience, and situation. The MIF operationalises this insight across nine scored dimensions: register, surface sentiment, true intent, irony, coded subtext, risk tier, annotator confidence, speaker emotion, and recommended communications action. We construct a 30-item calibration dataset spanning Standard English, Nigerian English, Nigerian Pidgin, and code-mixed registers, and evaluate a frontier language model (Gemini 2.5 Flash) under zero-shot and schema-informed prompting conditions. The headline finding is the Register Gap: zero-shot register classification accuracy is 33.3%, rising to 73.3% (+40 points) when the model receives the MIF schema in-context. The composite Meaning Intelligence Score increases by 5.4 points (73.2 to 78.6) under schema-informed prompting, with the largest practical gains in register identification, coded-subtext detection (+10 points), and strategic action recommendation (+10.3 points). We release the framework specification, annotation guidelines, and the 30-item public calibration set to support reproducibility, while retaining a private holdout corpus for contamination-protected evaluation.",
+    "pdf_url": "https://arxiv.org/pdf/2606.20255v1",
+    "published": "2026-06-18 14:05:29+00:00",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ]
+  },
+  {
+    "id": "2606.20225v1",
+    "title": "Actionable Activation Directions for Detecting and Mitigating Emergent Misalignment Across Language Model Families",
+    "authors": [
+      "Abdul Rafay Syed"
+    ],
+    "abstract": "Fine-tuning language models on insecure code induces emergent misalignment with poorly understood internal structure. We investigate whether this misalignment corresponds to a causally actionable activation-space direction shared across architectures. Across four instruction-tuned model families (Qwen2.5-1.5B, Gemma-2-2B, Llama-3.2-1B, Ministral-3-3B) finetuned identically, a difference-in-means direction achieves 99.6% separation of aligned and misaligned activations at each model's final layer. Causal steering by subtracting this direction reduces code spillover by 21-51 points, while a secure-code control confirms content specificity. Cross-architecture transfer via ridge regression maps yields large behavioral suppression (up to 46 points) but fails specificity controls as random and orthogonal directions perform comparably. We identify a two-tier specificity structure: within-model directions are causally specific and actionable; cross-model directions are causally real but non-specific. An asymmetric transfer topology emerges, with Gemma and Qwen acting as geometric donors and Llama as a receiver. These findings define the limits of linear cross-architecture correction and recommend within-model probing for auditing.",
+    "pdf_url": "https://arxiv.org/pdf/2606.20225v1",
+    "published": "2026-06-18 13:39:59+00:00",
+    "categories": [
+      "cs.CL"
+    ]
+  },
+  {
+    "id": "2606.20212v1",
+    "title": "CzechDocs: A Multiway Parallel Dataset of Formatted Documents for Minority Languages in Czechia",
+    "authors": [
+      "Josef Jon",
+      "Ond\u0159ej Bojar"
+    ],
+    "abstract": "We present CzechDocs, a multiway parallel dataset of formatted documents (HTML, DOCX, and PDF) covering Czech and minority languages used in Czechia-primarily Ukrainian and English, with smaller portions of Vietnamese, Russian and other languages. The dataset is designed to support the evaluation of machine translation systems that aim to preserve document formatting during translation. We provide a comparison of the most common approaches to format-preserving machine translation on a validation subset of the dataset. This validation split, together with the evaluation toolkit, is publicly released for further research. A held-out test split will be reserved for a future shared task focused on document-level translation with formatting preservation.",
+    "pdf_url": "https://arxiv.org/pdf/2606.20212v1",
+    "published": "2026-06-18 13:23:58+00:00",
+    "categories": [
+      "cs.CL"
+    ]
+  },
+  {
+    "id": "2606.20205v1",
+    "title": "Apparent Psychological Profiles of Large Language Models are Largely a Measurement Artifact",
+    "authors": [
+      "Jelena Meyer",
+      "David Garcia",
+      "Dirk U. Wulff"
+    ],
+    "abstract": "Psychological instruments designed for humans are increasingly used to assign large language models (LLMs) stable psychological profiles that affect their usability, safety assessment, and use as proxies for human participants in research. Using a formal psychometric framework, we show that these profiles are largely a measurement artifact. Administering a battery of personality and risk-preference instruments spanning self-reports and behavioral tasks to 56 instruction-tuned LLMs alongside large human reference samples, we report four findings. First, differences between models are driven not by the traits an instrument targets but by a directional response bias, a tendency to respond toward one end of the scale, or one labeled option, regardless of item content; a variance decomposition attributes 81-90% of between-model variation to this bias, against 9-16% in humans. Second, the bias declines with model capability but is not eliminated by it. Third, because bias rather than trait drives responding, an instrument's apparent reliability is almost entirely predicted by its response orthogonality, a term we coin for the proportion of items for which trait and bias point in opposite directions. Fourth, the profile a model appears to have shifts with the items used and can be manufactured through item selection. These results demonstrate that the apparent psychological profiles of LLMs are artifacts of the instrument used to measure them, not properties of the models themselves. As instruments borrowed from human psychology are rarely fully orthogonal and may inherently lack validity for LLMs, we call for dedicated assessments centered on response orthogonality.",
+    "pdf_url": "https://arxiv.org/pdf/2606.20205v1",
+    "published": "2026-06-18 13:18:37+00:00",
+    "categories": [
+      "cs.AI",
+      "cs.CL",
+      "cs.HC"
+    ]
+  },
+  {
+    "id": "2606.20198v1",
+    "title": "Pitch Spelling Jazz Lead Sheets, Solo Transcriptions, Classical Piano and Monophonic Scores",
+    "authors": [
+      "Augustin Bouquillard",
+      "Florent Jacquemard"
+    ],
+    "abstract": "We present an algorithm for pitch spelling and key estimation. Given an input in MIDI-like format, containing information on note pitches (expressed in semitones relative to the lowest reference note) and bar boundaries, it estimates the appropriate note names, a global Key Signature, and a local scale for each bar. This related information elements are evaluated jointly during two stages of optimisation. During an initial 'modal' stage, a probable scale is proposed for each bar, minimising the number of accidentals to be printed in the printed score with a shortest-path search. Then, during a second stage called 'tonal', these local scales are used to estimate the Key Signature and note names that would result in the best musical notation for the entire piece. We present evaluations conducted on datasets comprising a variety of digital musical scores: jazz lead sheets taken from the Real Book, transcriptions of recordings of jazz soli and bass lines, traditional tunes, as well as classical scores for piano and monophonic instruments. Our procedure was originally designed for use in music transcription, specifically for building digital collections of jazz solos transcribed from audio recordings, for the purposes of music analysis, teaching and the preservation of cultural heritage. This method should also prove useful for other tasks related to the processing of musical notation. Furthermore, to this end, we have defined new distances between various common jazz scales, which may be of some interest to musicological studies.",
+    "pdf_url": "https://arxiv.org/pdf/2606.20198v1",
+    "published": "2026-06-18 13:13:31+00:00",
+    "categories": [
+      "cs.CL"
+    ]
+  },
+  {
+    "id": "2606.20179v1",
+    "title": "ReNikud: Audio-Supervised Hebrew Grapheme-to-Phoneme Conversion",
+    "authors": [
+      "Maxim Melichov",
+      "Yakov Kolani",
+      "Morris Alper"
+    ],
+    "abstract": "Grapheme-to-phoneme (G2P) conversion for Modern Hebrew is needed for applications like text-to-speech (TTS), but is challenging due to the language's abjad writing system, which leaves vowels largely unwritten, creating substantial ambiguity. Standard approaches first predict vowel diacritics (nikud) to produce International Phonetic Alphabet (IPA) transcriptions, but this is limited: vocalization data is scarce and laborious to produce, it does not specify features such as lexical stress, and it reflects formal grammatical rules rather than everyday spoken pronunciation. Direct sequence-to-sequence IPA prediction, meanwhile, struggles on limited data and fails to exploit the character-level alignment characteristic of abjads. Our method, ReNikud, overcomes these limitations with two key insights: (1) Weak audio supervision via a phoneme-based automatic speech recognition (ASR) pseudo-labeling pipeline on thousands of hours of unlabeled Hebrew audio, yielding phonemic transcriptions that reflect natural spoken norms without manual annotation. (2) A pseudo-vocalization architecture that predicts IPA phonemes at each character position, enforcing character-level alignment as an inductive bias. Results on existing Hebrew G2P benchmarks and the new targeted MILIM benchmark for spoken Hebrew show that ReNikud surpasses previous state-of-the-art methods. We will release our code and trained models to support further work on Hebrew TTS and speech technologies.",
+    "pdf_url": "https://arxiv.org/pdf/2606.20179v1",
+    "published": "2026-06-18 12:50:47+00:00",
+    "categories": [
+      "cs.CL"
+    ]
+  },
+  {
+    "id": "2606.20164v1",
+    "title": "MedRLM: Recursive Multimodal Health Intelligence for Long-Context Clinical Reasoning, Sensor-Guided Screening, Evidence-Grounded Decision Support, and Community-to-Tertiary Referral Optimization",
+    "authors": [
+      "Aueaphum Aueawatthanaphisut"
+    ],
+    "abstract": "Real-world clinical decision support requires reasoning over heterogeneous and longitudinal patient information rather than answering isolated medical questions. However, current medical large language models and retrieval-augmented generation systems often rely on single-step prompting or retrieval, which can be fragile when clinical evidence is distributed across long electronic health records, medical images, sensor streams, guidelines, and referral constraints. This paper proposes MedRLM, a Recursive Multimodal Health Intelligence framework for long-context clinical reasoning, sensor-guided screening, and community-to-tertiary referral support. Instead of compressing all patient information into one prompt, MedRLM treats the patient case as an external clinical environment that can be recursively inspected, decomposed, retrieved, verified, and synthesized. The framework coordinates specialized agents for clinical text, longitudinal EHR, medical imaging, physiological sensor signals, guideline retrieval, uncertainty auditing, and referral planning. It further introduces a Clinical Evidence Graph Memory to connect patient-specific observations with retrieved evidence, standardized definitions, sensor-derived biomarkers, and referral criteria. A sensor-guided recursive triggering mechanism activates deeper reasoning when abnormal physiological or behavioral patterns are detected, while uncertainty-gated refinement supports clinician review for high-risk or low-confidence cases. We also outline a real-data evaluation design using public and credentialed clinical datasets spanning EHR, radiology, ECG, ICU time series, and referral-proxy outcomes. MedRLM aims to move medical AI from static question answering toward auditable, multimodal, and workflow-aware clinical decision support.",
+    "pdf_url": "https://arxiv.org/pdf/2606.20164v1",
+    "published": "2026-06-18 12:30:39+00:00",
+    "categories": [
+      "cs.CL",
+      "cs.AI",
+      "cs.LG",
+      "q-bio.QM"
+    ]
+  },
+  {
+    "id": "2606.20155v1",
+    "title": "NAMESAKES: Probing Identity Memorization in Text-to-Image Models",
+    "authors": [
+      "Morris Alper",
+      "Vasudha Varadarajan",
+      "Moran Yanuka",
+      "Angelina Wang",
+      "Hadar Averbuch-Elor"
+    ],
+    "abstract": "Text-to-image (T2I) models generate realistic likenesses of some individuals when prompted with their names, raising privacy concerns. However, distinguishing whether a generated face is memorized or fabricated currently requires ground-truth photos, access to training data, or white-box access to model internals, limiting applicability. We introduce a fully black-box behavioral probe that distinguishes between these regimes while requiring no reference photos or prior knowledge of training data. To benchmark this task, we present the NAMESAKES dataset of over one thousand names and faces of public figures spanning a wide range of fame levels, along with perturbed, less famous names. Experiments on state-of-the-art T2I models show that our probe substantially predicts identity memorization and separates memorized from unrecognized names, with further insights into differences across model families.",
+    "pdf_url": "https://arxiv.org/pdf/2606.20155v1",
+    "published": "2026-06-18 12:20:26+00:00",
+    "categories": [
+      "cs.CV",
+      "cs.CL"
+    ]
+  },
+  {
+    "id": "2606.20152v1",
+    "title": "From Texts to Scores: Tracing the Emergence of Essay Quality Representations in Large Language Models",
+    "authors": [
+      "Jiaxu Zuo",
+      "Mu You",
+      "Kaixin Lan",
+      "Tao Fang",
+      "Yujia Huo",
+      "Henghua Shen",
+      "Lidia S. Chao",
+      "Derek F. Wong"
+    ],
+    "abstract": "Recent advances in Large Language Models (LLMs) have substantially transformed Automated Essay Scoring (AES), yet the internal mechanisms underlying LLM-based scoring remain poorly understood. In this work, we systematically analyze the hidden representations of eight LLMs across two English essay datasets (ASAP++, CSEE) and one Portuguese dataset (ENEM). Using linear probing, cross-prompt generalization, dimensionality reduction, and neuron-level analyses, we find consistent evidence that essay quality information is encoded in a linearly accessible form within LLM representations. These representations emerge progressively across layers, remain robust across prompting strategies, and partially transfer across essay prompts despite differences in scoring rubrics. In addition, nonlinear probes provide only marginal and inconsistent improvements over linear probes, suggesting that most essay quality information is already linearly decodable. We further identify individual ``essay scoring neurons'' whose activations strongly correlate with essay scores and whose behavior is sensitive to targeted intervention. Moreover, the layer-wise distribution of these neurons systematically shifts with essay length, with longer essays relying more heavily on deeper layers. Overall, our findings provide evidence that LLMs encode structured representations related to essay quality and offer new insights into the interpretability of LLM-based AES systems.",
+    "pdf_url": "https://arxiv.org/pdf/2606.20152v1",
+    "published": "2026-06-18 12:18:54+00:00",
+    "categories": [
+      "cs.CL",
+      "cs.AI"
+    ]
+  },
+  {
+    "id": "2606.20138v1",
+    "title": "Learning to Prompt: Improving Student Engagement with Adaptive LLM-based High-School Tutoring",
+    "authors": [
+      "Po-Chin Chang",
+      "Nicholas Hogan",
+      "Aske Plaat",
+      "Michiel T. van der Meer"
+    ],
+    "abstract": "LLMs can personalize education, although current static-prompt tutoring systems struggle to adapt to diverse academic disciplines. We develop and test a system with subject-aware prompting, based on 14 pedagogical features (e.g., tutor scaffolding, student understanding) extracted from raw transcripts. We first train a prompt routing model in a simulation environment, and then deploy it for online adaptation with actual high-school students. The simulation benchmark shows the router outperforming two static baselines ($0.694$ vs. $0.647$ and $0.64$, $p<0.001$). A/B testing ($N=656$ conversations from 359 students) shows sim-to-real transfer where the model switches from analytical to scaffolding learning strategies. Our adaptive prompt selection mechanism improves instructional efficiency, maintains pedagogical quality and reduces interactions by around 3 turns ($p=0.007$). While a greedy router achieves a comparable exercise conversion rate with the baseline ($19.1\\%$ vs. $19.6\\%$), a stochastic router that samples strategies leads to a higher conversion rate ($28.1\\%$).",
+    "pdf_url": "https://arxiv.org/pdf/2606.20138v1",
+    "published": "2026-06-18 12:00:37+00:00",
+    "categories": [
+      "cs.AI",
+      "cs.CL",
+      "cs.HC",
+      "cs.LG"
+    ]
+  },
+  {
+    "id": "2606.20137v1",
+    "title": "PASQA: Pitch-Accent-Focused Speech Quality Assessment Model Trained on Synthetic Speech with Accent Errors",
+    "authors": [
+      "Masaya Kawamura",
+      "Yuma Shirahata",
+      "Kentaro Mitsui",
+      "Reo Shimizu"
+    ],
+    "abstract": "Existing mean opinion score (MOS) prediction models typically predict utterance-level naturalness MOS and can be insensitive to localized pitch-accent errors. We propose Pitch-Accent-focused Speech Quality Assessment (PASQA), which explicitly targets pitch-accent correctness. To train our model, we construct a controlled Japanese accent-error dataset by changing accent patterns using an accent-controllable text-to-speech system, and compute a pseudo accent-quality score from the accent-error rate. PASQA builds on self-supervised representations and employs mora-conditioned fusion, ranking loss, an auxiliary accent-error localization task, and speaker-invariant training. Experiments show that conventional models fail to preserve the ordering by accent-error severity, whereas PASQA achieves high ordering accuracy on both seen and unseen speakers. Further, PASQA shows stronger agreement with human accent-correctness judgments. The code is available at https://github.com/lycorp-jp/PASQA.",
+    "pdf_url": "https://arxiv.org/pdf/2606.20137v1",
+    "published": "2026-06-18 12:00:24+00:00",
+    "categories": [
+      "eess.AS",
+      "cs.CL",
+      "cs.LG",
+      "cs.SD"
+    ]
+  },
+  {
+    "id": "2606.20113v1",
+    "title": "When Does Streaming Tool Use Help? Characterizing Tool-Intent Stabilization in Streaming Retrieval-Augmented Generation",
+    "authors": [
+      "Elroy Galbraith"
+    ],
+    "abstract": "Streaming Retrieval-Augmented Generation (Streaming RAG) reduces user-perceived latency by issuing tool queries in parallel with ongoing user input, before the utterance is complete. Reported gains are aggregate, yet the mechanism's benefit is fundamentally query-intrinsic: speculation can only help when the correct tool query becomes determinable before the user stops speaking or typing. We isolate and measure this property -- tool-intent stabilization, the point in the input stream at which a speculative query's retrieval converges to the answer-bearing result. On the CRAG benchmark (1371 validation questions) we (i) measure the distribution of stabilization, (ii) derive a model-agnostic bound H on the portion of tool latency that can be hidden behind the user's remaining input, as a function of tool latency L and input cadence \u03b4, (iii) validate against a working streaming pipeline that realized savings meet or exceed this bound, and (iv) identify which query properties predict early versus late stabilization. The study requires no model training and runs on commodity CPU hardware. We find that at a realistic operating point (L=600ms, \u03b4=3w/s, \u03b8=0.8), 73.9% of queries across the full benchmark admit substantial latency hiding -- a blended figure that mixes sufficiency stabilization on the 21.3% of questions where gold evidence is verbatim-present and BM25-retrievable (95.2% streamable on this favorable slice) with a grounding-free top-1-settling fallback on the remainder. On the favorable slice, \u03c6_suf is bracketed to [0.26, 0.281] by exact and relaxed grounding -- both early. Question type produces a significant but coarse early/late split (Kruskal-Wallis p=0.017, epsilon^2=0.04), directly informing when a learned speculative trigger is worth its cost.",
+    "pdf_url": "https://arxiv.org/pdf/2606.20113v1",
+    "published": "2026-06-18 11:38:17+00:00",
+    "categories": [
+      "cs.CL",
+      "cs.IR"
+    ]
+  }
+]
