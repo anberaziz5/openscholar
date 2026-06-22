@@ -183,7 +183,7 @@ CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "7860"]
 1. Link your GitHub repository directly within the **Vercel Dashboard**.
 2. Pass the production environment parameter explicitly:
 * **Key:** `VITE_API_URL`
-* **Value:** `https://sunbalazizlcwu-openscholar-api.hf.space`
+* **Value:** `https://anberaziz5-openscholar-api.hf.space`
 
 
 3. Execute the standard Vercel build phase.
