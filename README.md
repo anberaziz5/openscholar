@@ -2,231 +2,194 @@
 
 # 🖧 OpenScholar
 
-**Production-Grade Academic RAG & Literature Synthesis Engine**
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-009688?style=flat&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![React](https://img.shields.io/badge/React-18.x-61DAFB?style=flat&logo=react&logoColor=black)](https://react.dev/)
+[![Vite](https://img.shields.io/badge/Vite-5.x-646CFF?style=flat&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Tailwind CSS v4](https://img.shields.io/badge/Tailwind_CSS-v4.0-06B6D4?style=flat&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![Deployed on Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97_Hugging_Face-Spaces-FFD21E?style=flat)](https://huggingface.co/spaces/SunbalAzizLCWU/openscholar-api)
+[![Deployed on Vercel](https://img.shields.io/badge/Vercel-Hosted-000000?style=flat&logo=vercel&logoColor=white)](https://vercel.com/)
 
-[![Build Status](https://img.shields.io/badge/build-passing-success?style=for-the-badge&logo=githubactions)](https://github.com/anberaziz5/openscholar)
-[![Python Version](https://img.shields.io/badge/python-3.11%2B-blue?style=for-the-badge&logo=python)](https://www.python.org/)
-[![React Version](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://reactjs.org/)
-[![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
-
+_An intelligent, serverless, zero-cost academic research engine designed to bridge the gap between real-time scientific literature discovery and synthesis. OpenScholar dynamically pulls live papers from arXiv, vectors them on-the-fly, and generates deep synthetic literature reviews using high-throughput LLMs._
 <br />
 
-<img src="https://raw.githubusercontent.com/anberaziz5/openscholar/main/frontend/src/assets/hero.png" alt="OpenScholar UI Preview" width="800" style="border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);" onerror="this.src='https://images.unsplash.com/photo-1507842217343-583bb7270b66?q=80&w=1200&auto=format&fit=crop';">
+## 🚨 The Problem It Solves
 
-<p align="center">
-  <i>Query global repositories, ingest contextual vector embeddings, and construct verifiable literature synthesis models in real-time.</i>
-</p>
+Traditional academic research workflows suffer from three major bottlenecks:
+1. **Information Lag:** Standard RAG (Retrieval-Augmented Generation) applications rely on static, pre-indexed vector databases that quickly become obsolete in fast-moving fields like Artificial Intelligence.
+2. **Analysis Paralysis:** Reviewing literature requires downloading dozens of heavy PDFs, skimming dense academic prose, manually tracking cross-references, and synthesizing common methodologies.
+3. **Infrastructure Costs:** High-performance AI tools and vector databases usually demand expensive cloud compute nodes, GPU servers, and subscription-based scaling.
 
-</div>
+## 💡 The Solution: How OpenScholar Works
 
----
-
-## 📖 Overview
-
-**OpenScholar** is an enterprise-level Retrieval-Augmented Generation (RAG) platform designed to eliminate the friction of academic research. Built on a serverless, dual-engine architecture, it allows researchers, engineers, and students to seamlessly search the live [arXiv](https://arxiv.org/) database, select full-text preprints, and generate citation-backed literature reviews on the fly.
-
-Unlike standard wrappers, OpenScholar dynamically streams, chunks, and maps millions of vector embeddings into a high-dimensional intelligence graph, synthesizing contextual answers utilizing ultra-fast inference models.
-
-## ✨ Enterprise Features
-
-- ⚡ **Real-Time Live Streaming:** Instantly query over 2+ million academic papers directly from the arXiv API.
-- 🧠 **Dynamic RAG Pipeline:** Automated PDF downloading, parsing, semantic chunking, and vector embedding generation (`all-MiniLM-L6-v2`) on demand.
-- 🗄️ **High-Performance Vector Storage:** Seamless integration with Qdrant Cloud for ultra-low latency cosine-similarity searches.
-- 🔄 **LLM Routing Engine:** Primary synthesis powered by **Groq (Llama-3.3-70b)** for lightning-fast inference, with automatic failover to **Google Gemini 1.5 Flash**.
-- 🖥️ **Premium Asymmetrical UI:** A dual-pane, desktop-grade workspace built with React, Vite, and Tailwind CSS v4, mimicking top-tier enterprise SaaS environments.
-- 🛡️ **Zero-Cost Scalable Architecture:** Designed entirely to run on free-tier, stateless cloud infrastructure (Render + Vercel + Cloudflare).
+OpenScholar eliminates these constraints by creating a **live, dynamic RAG pipeline** operating entirely over a fully serverless, zero-cost production stack:
+* **Dynamic Pipeline:** Instead of reading from a stale dataset, the engine queries the live **arXiv API** in real-time based on the user's explicit research intent.
+* **On-the-Fly Vectorization:** Downloaded papers are parsed, split, embedded, and immediately indexed into **Qdrant Cloud** with active payload indexing mapped directly to `paper_id` variables to isolate workspaces.
+* **Multi-LLM Synthetic Reviews:** The system utilizes **Groq** as its primary high-throughput engine to perform instant parallel analysis, automatically falling back to **Google Gemini** if rate limits or network exceptions occur.
+* **Premium Dual-Pane UI:** Built with **React** and styled via **Tailwind CSS v4**, the interface exposes a side-by-side workflow: exploratory search tracking on the left, and deeply synthesized literature layouts on the right.
 
 ---
 
 ## 🏗️ System Architecture
 
-OpenScholar utilizes a robust, decoupled architecture ensuring that PDF processing, vector mapping, and LLM inference do not block the user interface.
-
 ```mermaid
 graph TD
-    %% Define Styles
-    classDef frontend fill:#3b82f6,stroke:#1d4ed8,stroke-width:2px,color:#fff;
-    classDef backend fill:#10b981,stroke:#047857,stroke-width:2px,color:#fff;
-    classDef external fill:#f59e0b,stroke:#b45309,stroke-width:2px,color:#fff;
-    classDef db fill:#8b5cf6,stroke:#5b21b6,stroke-width:2px,color:#fff;
+    User([🧑‍💻 Researcher / User]) <--> |Interacts with Dual-Pane UI| Frontend[⚛️ React + Vite UI\nHosted on Vercel]
+    Frontend <--> |Secure REST API Requests| Backend[⚡ FastAPI Backend\nHosted on Hugging Face Spaces]
+    
+    subgraph Core Backend Engine
+        Backend -->|1. Real-time Query| ArXiv[📥 Live arXiv API]
+        ArXiv -->|2. Returns Metadata & PDFs| Backend
+        Backend -->|3. Extracts Texts & Embeds| Embedder[🧠 Embedding Engine]
+        Embedder -->|4. Upserts Vectors with paper_id Index| Qdrant[(🗄️ Qdrant Cloud\nVector DB)]
+    end
+    
+    subgraph AI Synthesis Layer
+        Backend -->|5. Contextual Query Engine| Groq[🚀 Groq API\nPrimary LLM]
+        Backend -.->|Fallback Routing| Gemini[♊ Google Gemini API\nSecondary LLM]
+        Groq -->|6. Multi-Paper Literature Review| Frontend
+        Gemini -->|6. Multi-Paper Literature Review| Frontend
+    end
 
-    %% Nodes
-    A[Client UI<br/>React / Vite]:::frontend
-    B[FastAPI Backend<br/>Uvicorn / Python]:::backend
-    C[arXiv Open API<br/>Metadata Stream]:::external
-    D[On-the-fly PDF Parser<br/>PyPDF2 + MapReduce]:::backend
-    E[Embedding Engine<br/>sentence-transformers]:::backend
-    F[(Qdrant Cloud<br/>Vector Database)]:::db
-    G{LLM Router Node}:::backend
-    H[Groq API<br/>Llama-3.3-70b]:::external
-    I[Gemini API<br/>1.5 Flash]:::external
-
-    %% Edges
-    A -->|1. Search Query| B
-    B -->|2. Fetch Abstracts| C
-    C -.->|3. Paper Metadata| B
-    B -.->|4. Render Feed| A
-    A -->|5. Select Papers & Synthesize| B
-    B -->|6. Download Full Text| D
-    D -->|7. Text Chunks| E
-    E -->|8. Cosine Vectors| F
-    F -->|9. Top-K Context Match| B
-    B -->|10. Context Injection| G
-    G -->|Primary Path| H
-    G -->|Fallback Path| I
-    H -.->|11. Synthesized Review| B
-    I -.->|11. Synthesized Review| B
-    B -.->|12. Final Document Payload| A
+    style Backend fill:#f9f,stroke:#333,stroke-width:2px
+    style Qdrant fill:#bbf,stroke:#333,stroke-width:2px
+    style Groq fill:#ffb,stroke:#333,stroke-width:2px
 
 ```
 
 ---
 
-## 🛠️ Technology Stack
+## 🛠️ The Technology Stack
 
-| Component | Technology | Role |
-| --- | --- | --- |
-| **Frontend Framework** | React 18, Vite | Client-side rendering & state management |
-| **Styling & UI** | Tailwind CSS v4, Lucide | Enterprise-grade, utility-first UI |
-| **Backend API** | FastAPI, Uvicorn | Asynchronous REST routing |
-| **Vector DB** | Qdrant Cloud | High-dimensional dense vector storage |
-| **Embeddings** | `sentence-transformers` | Semantic text encoding (`all-MiniLM-L6-v2`) |
-| **Language Models** | Groq, Gemini | Natural Language Generation & Synthesis |
-| **Document Processing** | `arxiv` API, `PyPDF2` | Live metadata retrieval & raw text extraction |
+### Backend Infrastructure
+
+* **Framework:** FastAPI (Python 3.11) — Chosen for lightweight asynchronous request execution and automatic OpenAPI generation.
+* **Deployment Platform:** Hugging Face Spaces (Docker Sandbox) — Leveraged for strict card-free, containerized deployment scaling on port `7860`.
+* **Vector Database:** Qdrant Cloud (Free Tier) — Outfitted with high-speed payload filters for isolating specific document chunks on targeted lookup spaces.
+
+### Frontend Interface
+
+* **Core:** React 18 + Vite — Engineered for microsecond HMR build speeds and lean build artifact generation.
+* **Styling Engine:** Tailwind CSS v4.0 — Utilizing its native CSS-variable-based pipeline for highly responsive grid layouts and premium typography.
+* **Deployment Platform:** Vercel — Providing seamless global CDN performance and automated production rollouts from GitHub.
 
 ---
 
-## 🚀 Quick Start & Local Setup
+## 🔧 Installation & Local Setup
 
 ### Prerequisites
 
-Before you begin, ensure you have active accounts and API keys for the following free services:
+* Python 3.11+ installed locally.
+* Node.js 18+ and npm installed locally.
+* Free API keys for: Groq, Google AI Studio (Gemini), and Qdrant Cloud.
 
-* [Qdrant Cloud](https://cloud.qdrant.io/) (Cluster URL & API Key)
-* [Groq Console](https://console.groq.com/) (API Key)
-* [Google AI Studio](https://aistudio.google.com/) (API Key)
+### 1. Backend Setup
 
-### 1. Clone the Repository
-
-```bash
-git clone [https://github.com/anberaziz5/openscholar.git](https://github.com/anberaziz5/openscholar.git)
-cd openscholar
-
-```
-
-### 2. Configure Backend
+Navigate into the backend project workspace:
 
 ```bash
 cd backend
+
+```
+
+Create a virtual environment and install standard requirements:
+
+```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 
 ```
 
-Create a `.env` file in the `backend/` directory:
+Create a `.env` configuration file in the backend root directory:
 
 ```env
-QDRANT_URL=your_qdrant_cluster_url
-QDRANT_API_KEY=your_qdrant_api_key
 GROQ_API_KEY=your_groq_api_key
 GEMINI_API_KEY=your_gemini_api_key
+QDRANT_URL=your_qdrant_cloud_cluster_url
+QDRANT_API_KEY=your_qdrant_api_key
 
 ```
 
-Start the backend server:
+Execute the local development server:
 
 ```bash
-uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+uvicorn main:app --reload --port 8000
 
 ```
 
-### 3. Configure Frontend
+### 2. Frontend Setup
 
-Open a new terminal tab:
+Navigate into the frontend project workspace:
 
 ```bash
-cd frontend
+cd ../frontend
+
+```
+
+Install modern dependencies:
+
+```bash
 npm install
 
 ```
 
-Create a `.env` file in the `frontend/` directory:
+Create a `.env` file in the frontend root directory:
 
 ```env
 VITE_API_URL=http://localhost:8000
 
 ```
 
-Start the Vite development server:
+Spin up the local Vite pipeline:
 
 ```bash
 npm run dev
 
 ```
 
-Navigate to `http://localhost:5173` in your browser.
-
 ---
 
-## 📂 Project Structure
+## 🚀 Cloud Deployment Pipeline
 
-```text
-openscholar/
-├── backend/
-│   ├── main.py                 # FastAPI application & route definitions
-│   ├── requirements.txt        # Python dependencies
-│   └── scripts/                # Utility scripts (legacy local processing)
-├── frontend/
-│   ├── src/
-│   │   ├── App.jsx             # Main React Application & UI Logic
-│   │   ├── index.css           # Tailwind v4 entrypoint
-│   │   └── main.jsx            # React DOM rendering
-│   ├── vite.config.js          # Vite & Tailwind configurations
-│   ├── package.json            # Node dependencies
-│   └── public/                 # Static assets
-└── README.md
+### Backend Deployment (Hugging Face Spaces)
+
+The backend is packaged within a custom `Dockerfile` designed to expose FastAPI configurations through port `7860`.
+
+```dockerfile
+FROM python:3.11
+WORKDIR /code
+COPY ./requirements.txt /code/requirements.txt
+RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+COPY . /code
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "7860"]
 
 ```
 
----
+1. Deploying to Hugging Face is carried out directly from the working workspace using the standard Hugging Face CLI environment:
 
-## ☁️ Deployment
+```bash
+   pip install huggingface_hub
+   huggingface-cli login
+   huggingface-cli upload YOUR_HF_USERNAME/openscholar-api ./backend . --repo-type space
 
-OpenScholar is heavily optimized for zero-cost cloud deployment:
+```
 
-**Backend (Render Web Service)**
+2. Navigate to your Space settings and insert your `.env` variables into the **Repository Secrets** configuration window.
 
-1. Connect the repository to Render.
-2. Set root directory to `backend`.
-3. Build command: `pip install -r requirements.txt`.
-4. Start command: `uvicorn main:app --host 0.0.0.0 --port $PORT`.
-5. Apply backend environment variables.
+### Frontend Deployment (Vercel)
 
-**Frontend (Vercel)**
+1. Link your GitHub repository directly within the **Vercel Dashboard**.
+2. Pass the production environment parameter explicitly:
+* **Key:** `VITE_API_URL`
+* **Value:** `https://sunbalazizlcwu-openscholar-api.hf.space`
 
-1. Import repository to Vercel.
-2. Set root directory to `frontend`.
-3. Inject the `VITE_API_URL` environment variable pointing to your Render backend URL.
-4. Deploy.
 
-*(Note: Ensure your Render backend URL is added to the `allow_origins` array in `backend/main.py` to prevent CORS issues).*
+3. Execute the standard Vercel build phase.
 
 ---
 
-## 🤝 Contributing
-
-We welcome contributions from the open-source community!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/EnterpriseFeature`)
-3. Commit your Changes (`git commit -m 'Add highly requested enterprise feature'`)
-4. Push to the Branch (`git push origin feature/EnterpriseFeature`)
-5. Open a Pull Request
-
----
-
-## 📜 License
+## 📄 License
 
 Distributed under the MIT License. See `LICENSE` for more information.
